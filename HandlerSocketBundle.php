@@ -2,8 +2,8 @@
 
 namespace KonstantinKuklin\HandlerSocketBundle;
 
-use KonstantinKuklin\MySQLHandlerSocketBundle\DependencyInjection\HSExtension;
-use KonstantinKuklin\MySQLHandlerSocketBundle\DependencyInjection\MySQLHandlerSocketExtension;
+use KonstantinKuklin\HandlerSocketBundle\DependencyInjection\HSExtension;
+use KonstantinKuklin\HandlerSocketBundle\DependencyInjection\HandlerSocketExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
