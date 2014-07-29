@@ -1,0 +1,32 @@
+{
+    "name": "konstantin-kuklin/handlersocket-bundle",
+    "description": "Bundle for HandlerSocket support with Symfony",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Konstantin Kuklin",
+            "email": "konstantin.kuklin@gmail.com"
+        }
+    ],
+
+    "keywords": [
+        "mysql", "handlersocket", "handler socket", "symfony", "bundle"
+    ],
+
+    "support": {
+        "source": "http://github.com/KonstantinKuklin/HandlerSocketBundle"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "KonstantinKuklin\\HandlerSocketBundle\\": ""
+        }
+    },
+
+    "require": {
+        "php": ">=5.3.2",
+        "doctrine/annotations": ">=1.0",
+        "symfony/symfony": ">=2.2",
+        "konstantin-kuklin/handlersocket-library": "0.*"
+    }
+}
