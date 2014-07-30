@@ -10,3 +10,9 @@ services:
     hs_manager:
         class: KonstantinKuklin\HandlerSocketBundle\HS\Manager
         arguments: ["@hs_reader", "@hs_writer"]
+
+    data_collector.hs:
+        class: KonstantinKuklin\HandlerSocketBundle\Collector\HSDataCollector
+        arguments: ["@hs_manager"]
+        tags:
+            - { name: data_collector, template: "HandlerSocketBundle:Collector:hs", id: "hs" }

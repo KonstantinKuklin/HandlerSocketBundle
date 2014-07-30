@@ -1,0 +1,34 @@
+{% extends app.request.isXmlHttpRequest ? 'WebProfilerBundle:Profiler:ajax_layout.html.twig' : 'WebProfilerBundle:Profiler:layout.html.twig' %}
+
+{% block toolbar %}
+    {% set icon %}
+        <img width="20" height="28" alt="Database" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAABC0lEQVR42mNgGAUjABw9etTt0qVLjUB84/Lly/+JwRcvXrwKxO3nz593XbVqFTOKgdu3b/+zbdu2RVu3btU9d+6cFhmGf75w4cJGoJ4cIFuRYceOHf9hGGj4xs2bN1tS5GVkA2H4/fv3Avb29v/JwSAv30M38NevXwakGgQCYAM3btyoAgy/WGA4XoIZ+Pv3bwdKXAiPFCDbD8g+RpGB2CIF5OW/f//2A/F+EnE/1kj5/v27fHJy8v/8/HySMEgPzkiJ+m/7nxQMAiAaZ6SQaiAM44wUsg0cupHyfyswoEnBIACkGUDFD7ZIIdlAKEYvyuCRQhUDYYCiSMEGQMUXyFCQS0nBID0jsNIDABrO0MLsEnBFAAAAAElFTkSuQmCC" />
+        <span class="sf-toolbar-status">{{ collector.count }}</span>
+    {% endset %}
+    {% set text %}
+        <div class="sf-toolbar-info-piece">
+            <b>HS Queries</b>
+            <span>{{ collector.count }}</span>
+        </div>
+        <div class="sf-toolbar-info-piece">
+            <b>Query time</b>
+            <span>{{ '%0.2f'|format(collector.time * 1000) }} ms</span>
+        </div>
+    {% endset %}
+    {% include 'WebProfilerBundle:Profiler:toolbar_item.html.twig' with { 'link': profiler_url } %}
+{% endblock %}
+
+{% block menu %}
+    <span class="label">
+        <span class="icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAcCAYAAAB/E6/TAAABoUlEQVR42r2WsUrDUBSGC76AOIvOFgTBySFEnJzEwakNVAhxEgLOxSeo7ewLOHRwadqEDlUQMoXSJIsgOHVvp5S2lut/0kYibRPqvfHAR8iQ8yX3nj/cXKPROKnX61ue5xWA4/s+2wTXdQPwTM/btr2TW1eWZbFWq2WbpnlB991uV8aDxqbCmLjd6/XuHMfZWxJFQOhBeE1fCGEeb/lIb/xXKa0QpPe4Hv4SxYR9cJsTWatEBL5sOBgMtmVZZiJIFE0mk6N/EU2n01Oe5lTVanUuwl7coOl7FqJKpcJKpdJcZBjGMe0VhFfAESlaWjo0fYXkbCGUQTsTUWysnWazWVgI85mJYsv2AVSautlsVgMvnNQSp240Gu2rqsp0XeeCeqTm6LIjMRGk5oineZSjUJSWIx5RlKNQlJYjoUuXlKNM9mhFjqRisTjE1HzxQD0SczQejw+QgTJ44qScOHVBEOwqisI0TeOCeqTmqPMgMRGk5kiYiM4GaPqZhSgKbCiiolMPTRudgkSKosD+iOKFAJ9D8iZ86dYV/TGE5iipROboG1Ln4ebsw/LmAAAAAElFTkSuQmCC" alt="" /></span>
+        <strong>HS</strong>
+        <span class="count">
+            <span>{{ collector.count }}</span>
+            <span>{{ '%0.0f'|format(collector.time * 1000) }} ms</span>
+        </span>
+    </span>
+{% endblock %}
+
+{% block panel %}
+    No information yet
+{% endblock %}
