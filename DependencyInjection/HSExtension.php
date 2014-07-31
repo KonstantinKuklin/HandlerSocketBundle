@@ -28,10 +28,12 @@ class HSExtension extends Extension
         $container->setParameter('hs.reader.host', $config['reader']['host']);
         $container->setParameter('hs.reader.port', $config['reader']['port']);
         $container->setParameter('hs.reader.auth_key', $config['reader']['auth_key']);
+        $container->setParameter('hs.reader.debug', $config['reader']['debug']);
 
         $container->setParameter('hs.writer.host', $config['writer']['host']);
         $container->setParameter('hs.writer.port', $config['writer']['port']);
         $container->setParameter('hs.writer.auth_key', $config['writer']['auth_key']);
+        $container->setParameter('hs.writer.debug', $config['writer']['debug']);
     }
 
     /**

@@ -1,11 +1,11 @@
 services:
     hs_reader:
         class: HS\Reader
-        arguments: ["%hs.reader.host%", "%hs.reader.port%", "%hs.reader.auth_key%"]
+        arguments: ["%hs.reader.host%", "%hs.reader.port%", "%hs.reader.auth_key%", "%hs.reader.debug%"]
 
     hs_writer:
         class: HS\Writer
-        arguments: ["%hs.writer.host%", "%hs.writer.port%", "%hs.writer.auth_key%"]
+        arguments: ["%hs.writer.host%", "%hs.writer.port%", "%hs.writer.auth_key%", "%hs.writer.debug%"]
 
     hs_manager:
         class: KonstantinKuklin\HandlerSocketBundle\HS\Manager
