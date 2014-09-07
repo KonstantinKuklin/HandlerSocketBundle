@@ -7,7 +7,7 @@
 namespace KonstantinKuklin\HandlerSocketBundle\HS;
 
 use HS\ReaderInterface;
-use HS\WriterInterface;
+use HS\WriterHSInterface;
 
 class Manager
 {
@@ -16,9 +16,9 @@ class Manager
 
     /**
      * @param ReaderInterface $reader
-     * @param WriterInterface $writer
+     * @param WriterHSInterface $writer
      */
-    public function __construct(ReaderInterface $reader, WriterInterface $writer = null)
+    public function __construct(ReaderInterface $reader, WriterHSInterface $writer = null)
     {
         $this->reader = $reader;
         $this->writer = $writer;

@@ -5,7 +5,7 @@
 
 namespace KonstantinKuklin\HandlerSocketBundle\Collector;
 
-use HS\ResponseAbstract;
+use HS\Result\ResultInterface;
 use KonstantinKuklin\HandlerSocketBundle\HS\Manager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,8 +50,8 @@ class HSDataCollector extends DataCollector
             'queriesCountWriter' => $queriesCountWriter,
             'queriesCount' => $count,
             'totalTime' => $time,
-            'responseListReader' => $this->getResponseList($reader->debugResponseList),
-            'responseListWriter' => $this->getResponseList($writer->debugResponseList),
+            'resultListReader' => $this->getResponseList($reader->debugResultList),
+            'resultListWriter' => $this->getResponseList($writer->debugResultList),
             'connectionList' => $connectionList,
             'queriesCountError' => $this->queriesCountError,
         );
@@ -75,7 +75,7 @@ class HSDataCollector extends DataCollector
     /**
      * @return int
      */
-    public function getqueriesCountWriter()
+    public function getQueriesCountWriter()
     {
         return $this->data['queriesCountWriter'];
     }
@@ -112,40 +112,40 @@ class HSDataCollector extends DataCollector
     /**
      * @return array
      */
-    public function getResponseListReader()
+    public function getResultListReader()
     {
-        return $this->data['responseListReader'];
+        return $this->data['resultListReader'];
     }
 
     /**
      * @return array
      */
-    public function getResponseListWriter()
+    public function getResultListWriter()
     {
-        return $this->data['responseListWriter'];
+        return $this->data['resultListWriter'];
     }
 
     /**
-     * @param ResponseAbstract[] $responseList
+     * @param ResultInterface[] $responseList
      *
      * @return array
      */
     private function getResponseList($responseList)
     {
         $returnList = array();
-        foreach ($responseList as $response) {
+        foreach ($responseList as $result) {
 
-            if (!$response->isSuccessfully()) {
+            if (!$result->isSuccessfully()) {
                 $this->queriesCountError++;
             }
 
-            $refl = new \ReflectionClass($response);
-            /** @var ResponseAbstract $response */
+            $refl = new \ReflectionClass($result);
+
             $returnList[] = array(
-                'time' => $response->getTime(),
-                'isError' => !$response->isSuccessfully(),
-                'request' => $response->getRequest()->getRequestString(),
-                'data' => $response->getData(),
+                'time' => $result->getTime(),
+                'isError' => !$result->isSuccessfully(),
+                'query' => $result->getQuery()->getQueryString(),
+                'data' => $result->getData(),
                 'type' => $refl->getShortName()
             );
         }

@@ -46,12 +46,12 @@
 
 
     <h2>HS Queries Read socket [{{ collector.queriesCountReader }}]</h2>
-    {% set list = collector.responseListReader %}
+    {% set list = collector.resultListReader %}
     {% set listId = 1 %}
     {{ block('queries') }}
 
     <h2>HS Queries Write socket [{{ collector.queriesCountWriter }}]</h2>
-    {% set list = collector.responseListWriter %}
+    {% set list = collector.resultListWriter %}
     {% set listId = 2 %}
     {{ block('queries') }}
 
@@ -72,7 +72,7 @@
                         <div {#onclick="return expandQuery(this);" #}title="Expand query"
                              data-target-id="code-{{ listId }}-{{ loop.index }}" style="cursor: pointer;">
                             <span id="smallcode-{{ listId }}-{{ loop.index }}">
-                                <strong>{{ query.type }}</strong>: {{ query.request }}
+                                <strong>{{ query.type }}</strong>: {{ query.query }}
                             </span>
                         </div>
                         <code id="code-{{ listId }}-{{ loop.index }}">
