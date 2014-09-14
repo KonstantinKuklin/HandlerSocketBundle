@@ -43,8 +43,14 @@ How to Debug
 ===================
 Also HS debug information is available on symfony web console
 
+Symfony2 web console with HS:
+
 ![Symfony2 web console](https://pp.vk.me/c622717/v622717353/201f/wO6SGH2icWA.jpg)
 
+HS page on profiler:
+
 ![HS on profile](https://pp.vk.me/c622717/v622717353/2031/LcoEQhNIRf4.jpg)
+
+HS page with detailed output information on profiler:
 
 ![HS Detailed](https://pp.vk.me/c622717/v622717353/2028/5CsaNgEjNcA.jpg)
